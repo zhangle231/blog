@@ -23,16 +23,16 @@ git clone https://github.com/pentaho/pentaho-kettle.git
 
 ```
 
-  <target name="dist" depends="build">
-    <ant antfile="assembly/build.xml" inheritall="false">
-      <target name="clean-all"/>
-      <target name="assemble-full"/>
-    </ant>
-    <move todir="${distrib}">
-      <fileset dir="${assembly.stage.pdi-client.dir}"/>
-    </move>
-  </target>
-  
+    <target name="dist" depends="build">
+        <ant antfile="assembly/build.xml" inheritall="false">
+            <target name="clean-all"/>
+            <target name="assemble-full"/>
+        </ant>
+        <move todir="${distrib}">
+            <fileset dir="${assembly.stage.pdi-client.dir}"/>
+        </move>
+    </target>
+    
 ```
  上面就是dist相关的任务。它要干什么呢？首先它是不会执行滴。需要build先完成才能执行。好吧。那我们先一个一个build吧。这样不会内存出错了吧。转念一想。它不是插件么。不用都编吧。咱先把主要的编了。启起来看看呗。好吧。那我就挑着编吧。这块也挺周折的。不过还好。任务小了。还是不错的。一个是编译的快。相对快一点。另一个不知道是我的机器问题？还是ant的问题。我每次执行dist都会把好好编完在jar删除。然后重新编呀。。。你这是在耍我玩呢么。。。
  好了build的部分咱就算解决了。下面我们可以dist了吧。dist分成两部分。move todir这部分。不会出错的。就是mv的过程。为了发布用的吧。不管了。那重要的就是assemble-full.顺便说一下clean-all就删除了吧。不然又重玩了。。。老外为什么就喜欢clean呢。
